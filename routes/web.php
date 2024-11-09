@@ -3,8 +3,6 @@
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 Route::fallback(function () {
     return redirect('/');
@@ -14,7 +12,7 @@ Route::get('/', function () {
     return redirect(route('tasks.dashboard'));
 })->middleware('web');
 
-Route::middleware([ 'verified', 'web'])->group(function () {
+Route::middleware(['verified', 'web'])->group(function () {
     Route::get('/dashboard', [TaskController::class, 'index'])->name('tasks.dashboard');
 
     Route::prefix('users')->group(function () {

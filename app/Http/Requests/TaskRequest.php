@@ -21,15 +21,16 @@ class TaskRequest extends FormRequest
      */
     public function rules(): array
     {
+        $isUpdateRoute = $this->routeIs('tasks.update');
+
         return [
             'title' => 'required|string|max:50',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
+            'remove_image' => 'required|in:true,false',
             // 'user_id' => 'required|exists:users,id'
         ];
-        if($this->isMethod('put') || $this->isMethod('patch')) {
-            $rules['remove_image'] = 'required|in:true,false';
-        }
+
         return $rules;
     }
 }
