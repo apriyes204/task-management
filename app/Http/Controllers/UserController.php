@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Actions\Fortify\UpdateUserPassword;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,18 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $items = User::with(['tasks'])->latest()->paginate(10);
+        $userCount = User::count();
+        $taskCount = Task::count();
+        $taskCompleted = Task::where('status', 'completed')->count();
+        $taskPending = Task::where('status', 'pending')->count();
+        return view('pages.users-all', [
+            'items' => $items,
+            'userCount' => $userCount,
+            'taskCount' => $taskCount,
+            'taskCompleted' => $taskCompleted,
+            'taskPending' => $taskPending,
+        ]);
     }
 
     /**
@@ -86,13 +98,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-
-        // Validasi: pastikan user yang sedang login adalah yang akan dihapus
-        if ($id == Auth::id()) {
-            User::findOrFail($id)->delete();
-            Auth::logout();
-            return redirect('/')->with('success', 'Your account was deleted.');
-        }
-        return redirect()->back()->with('error', 'You cannot delete your own account.');
+        $user = User::findOrFail($id);
+        $user->delete();
+        Auth::logout();
+        return redirect()->route('login')->with('status', 'User has been deleted.');
     }
 }

@@ -69,35 +69,35 @@
 </div>
 
 @push('script')
-<script>
-    $(document).ready(function () {
-        $('#taskForm').on('submit', function (e) {
-            e.preventDefault();
-            let formData = new FormData(this);
+    <script>
+        $(document).ready(function () {
+            $('#taskForm').on('submit', function (e) {
+                e.preventDefault();
+                let formData = new FormData(this);
 
-            $.ajax({
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                headers: {
-                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
-                },
-                success: function (response) {
-                    if (response.success) {
-                        window.location.href = '{{ route('tasks.dashboard') }}';
-                    } else {
-                        alert('Failed to create task!');
+                $.ajax({
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.href = '{{ route('tasks.dashboard') }}';
+                        } else {
+                            alert('Failed to create task!');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                        alert('An error ocurred. Please try again!');
                     }
-                },
-                error: function(xhr, status, error) {
-                    console.error(error);
-                    alert('An error ocurred. Please try again!');
-                }
+                });
             });
         });
-    });
-</script>
+    </script>
 @endpush
 
 <script>

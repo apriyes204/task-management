@@ -1,7 +1,7 @@
 <nav class="app-header navbar navbar-expand bg-body"> <!--begin::Container-->
     <div class="container-fluid"> <!--begin::Start Navbar Links-->
-        <ul class="navbar-nav">
-            <li class="nav-item d-none d-md-block">
+        <ul class="navbar-nav navbar-brand">
+            <li class="nav-item d-block">
                 <a href="{{route('tasks.dashboard')}}" class="nav-link">Home</a>
             </li>
         </ul>
@@ -25,12 +25,12 @@
                             <i class="bi bi-lock"></i>
                             {{__('Password')}}
                         </a>
-                        <a href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit()" class="btn btn-flat float-end dropdown-item">
-                            <i class="bi bi-box-arrow-up-left"></i>
-                            {{__('Logout')}}
-                        </a>
-                        <form action="{{route('logout')}}" id="logout-form" method="POST" class="d-none">
+                        <form action="{{ route('logout') }}"method="POST" class="d-inline">
                             @csrf
+                                <button class="btn btn-flat float-end dropdown-item">
+                                    <i class="bi bi-box-arrow-up-left"></i>
+                                    {{__('Logout')}}
+                                </button>
                         </form>
                     </li>
                 </ul>

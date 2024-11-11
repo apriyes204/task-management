@@ -10,7 +10,7 @@
 
         <form id="editForm" method="POST" enctype="multipart/form-data" action="{{route('tasks.update', $item->id)}}">
             @csrf
-            @method('PUT')
+            {{-- @method('PUT') --}}
             <div class="modal-body">
 
                 <div class="container-fluid">
@@ -27,7 +27,11 @@
                             <div class="mb-3">
                                 <label for="taskImage" class="form-label">Task Image</label>
                                 <input type="file" class="form-control" name="image" id="taskImage"
-                                    accept="image/jpg,image/png,image/jpeg" onchange="viewImage(this)">
+                                       accept="image/jpg,image/png,image/jpeg" onchange="viewImage(this)">
+
+                            </div>
+                            <div class="mb-3">
+                                <input type="hidden" id="removeImageInput" name="remove_image" value="false">
                             </div>
 
                             {{-- Description Task --}}
@@ -46,18 +50,17 @@
                                 <div class="text-center preview-container">
                                     <div id="wrapImage" class="position-relative {{ $item->image_path ? '' : 'd-none' }}">
                                         <img id="imageView"
-                                        {{-- src="{{ $item->image_path ? asset('storage/' . $item->image_path) : '/api/placeholder/400/300' }}" --}}
-                                        src="{{ $item->image_path ? asset('storage/' . $item->image_path) : asset('/api/placeholder/400/300') }}"
-                                        class="img-fluid rounded"
-                                            alt="Preview">
+                                             src="{{ $item->image_path ? asset('storage/' . $item->image_path) : asset('/api/placeholder/400/300') }}"
+                                             class="img-fluid rounded" alt="Preview">
                                         <button type="button" class="btn btn-danger position-absolute top-0 end-0 m-2"
-                                            onclick="removeImage()">
+                                                onclick="removeImage()">
                                             Hapus
                                         </button>
                                     </div>
                                     <p id="noImageText" class="text-muted {{$item->image_path ? 'd-none' : ''}}">Belum ada gambar dipilih</p>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -74,35 +77,35 @@
 </div>
 
 @push('script')
-<script>
-    $(document).ready(function () {
-        $('#editForm').on('submit', function (e) {
-            e.preventDefault();
-            let formData = new FormData(this);
+    <script>
+        $(document).ready(function () {
+            $('#editForm').on('submit', function (e) {
+                e.preventDefault();
+                let formData = new FormData(this);
 
-            $.ajax({
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                headers: {
-                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
-                },
-                success: function (response) {
-                    if (response.success) {
-                        window.location.href = '{{ route('tasks.dashboard') }}';
-                    } else {
-                        alert('Failed to create task!');
+                $.ajax({
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.href = '{{ route('tasks.dashboard') }}';
+                        } else {
+                            alert('Failed to create task!');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                        alert('An error ocurred. Please try again!');
                     }
-                },
-                error: function(xhr, status, error) {
-                    console.error(error);
-                    alert('An error ocurred. Please try again!');
-                }
+                });
             });
         });
-    });
-</script>
+    </script>
 @endpush
 
 <script>
@@ -127,16 +130,19 @@
     }
 
     function removeImage() {
-        const imageInput = document.getElementById('taskImage');
+        const taskImage = document.getElementById('taskImage');
         const wrapImage = document.getElementById('wrapImage');
         const noImageText = document.getElementById('noImageText');
         const imageView = document.getElementById('imageView');
+        const removeImageInput = document.getElementById('removeImageInput');
 
         // Reset file input
-        imageInput.value = '';
+        taskImage.value = '';
+        // Menandai gambar harus dihapus saat submit form
+        removeImageInput.value = 'true'; // Perbaikan di sini
         // Hide preview
         wrapImage.classList.add('d-none');
-        imageView.src = '/api/placeholder/400/300';
+        imageView.src = "{{ asset('/api/placeholder/400/300') }}";
         // Show no image text
         noImageText.classList.remove('d-none');
     }

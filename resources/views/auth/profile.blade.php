@@ -38,21 +38,21 @@
                         <div class="card-body">
                             <!-- Alert Status -->
                             @if (session('status'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    {{ session('status') }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('status') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
                             @endif
                             <!-- Alert Validation Errors -->
                             @if ($errors->updateProfileInformation->any())
-                                <div class="alert alert-danger alert-dismissible fade show mb-0 pb-0" role="alert">
-                                    <ul>
-                                        @foreach ($errors->updateProfileInformation->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
+                            <div class="alert alert-danger alert-dismissible fade show mb-0 pb-0" role="alert">
+                                <ul>
+                                    @foreach ($errors->updateProfileInformation->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
                             @endif
                             <form id="updateProfileForm" class="mt-3" action="{{ route('user-profile-information.update') }}" method="POST">
                                 @csrf
@@ -75,6 +75,7 @@
                                             @enderror
                                     </div>
                                 </div>
+
                                 <div class="form-group row mb-3">
                                     <label for="email" class="col-md-4 col-form-label text-md-right">
                                         {{ __('E-Mail Address') }}
@@ -93,8 +94,8 @@
                                             @enderror
                                     </div>
                                 </div>
-                                <div class="form-group row mb-3">
-                                    <div class="col-md-4 offset-md-4 d-grid gap-2">
+                                <div class="form-group row">
+                                    <div class="col-lg-4 mb-2 col-md-6 offset-md-4 d-grid gap-2">
                                         <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#passModal">
                                             {{ __('Update Profile') }}
                                         </button>
@@ -106,26 +107,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group row mb-3 pb-0 mt-3">
-                                    <div class="col-md-4 offset-md-4 d-grid gap-2">
-                                        {{-- <button onclick="openDeleteUserModal('{{ $item->id }}', '{{ $item->name }}')" class="btn btn-danger" role="button" data-bs-toggle="modal" data-bs-target="#delModalUser_{{ $item->id }}">
+                            </form>
+                            <form action="{{ route('users.delete', $item->id) }}" id="delete-user" class="d-inline" method="POST">
+                                <div class="form-group row mb-3">
+                                    <div class="col-lg-4 mb-2 col-md-6 offset-md-4 d-grid gap-2">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">
                                             {{ __('Delete Profile') }}
-                                        </button> --}}
-                                        <form action="{{route('users.delete-account', $item->id)}}" method="POST" class="d-inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-danger" type="submit" onclick="return confirm('Are you sure?')" aria-label="Delete User">
-                                                {{ __('Delete Profile') }}
-                                            </button>
-                                        </form>
-
-                                        {{-- <div class="modal fade" id="delModalUser_{{$item->id}}" tabindex="-1" aria-label="delModalUserLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                @include('auth.delete-profile', ['item' => $item])
-                                            </div>
-                                        </div> --}}
-
-
+                                        </button>
                                     </div>
                                 </div>
                             </form>
@@ -137,5 +127,30 @@
             </div>
         </div>
     </div>
-
+{{-- <script>
+    document.getElementById('delete-account').addEventListener('click', function() {
+    if (confirm('Apakah Anda yakin ingin menghapus akun ini?')) {
+        fetch('{{ route('users.delete') }}', {
+            method: 'DELETE',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Akun berhasil dihapus.');
+                window.location.href = '/'; // Redirect setelah penghapusan
+            } else {
+                return response.json().then(data => {
+                    alert('Error: ' + data.error);
+                });
+            }
+        })
+        .catch(error => {
+            alert('Terjadi kesalahan: ' + error.message);
+        });
+    }
+    });
+</script> --}}
 @endsection

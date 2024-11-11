@@ -2,17 +2,28 @@
 @section('title', 'Register')
 @section('content')
 
-    <div class="card-header text-center">{{ __('Register') }}</div>
+    <div class="card-header text-center">
+        {{ __('Register') }}
+    </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route('register') }}" class="mb-0 pb-0">
-            @csrf
 
-            @if (session('status'))
+        @if (session('status'))
             <div class="alert alert-success" role="alert">
                 {{ session('status') }}
             </div>
-            @endif
+        @endif
+        @if (session('error'))
+            <div class="alert alert-success" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
+
+
+        <form method="POST" action="{{ route('register') }}" class="mb-0 pb-0">
+            @csrf
+
+
             <div class="form-group row mb-3">
                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
                 <div class="col-md-8">
@@ -68,7 +79,7 @@
                 </div>
             </div>
             <div class="form-group row mb-0 mt-2">
-                <div class="col-md-4 offset-md-4">
+                <div class="col-md-8 offset-md-4">
                     @if (Route::has('password.request'))
                         <a class="btn btn-link mb-0 pb-0" href="{{ route('password.request') }}">
                             {{ __('Forgot Your Password?') }}

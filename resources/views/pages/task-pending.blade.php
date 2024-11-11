@@ -18,7 +18,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                        Dashboard
+                        Task Success
                     </li>
                 </ol>
             </div>
@@ -43,7 +43,7 @@
             <div class="col-12" id="tableTask">
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h5 class="card-title">Task Lists</h5>
+                        <h5 class="card-title">Task Success Lists</h5>
                         <div class="card-tools">
                             <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addTaskModal">
                                 Add Task

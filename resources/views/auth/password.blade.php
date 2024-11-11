@@ -30,7 +30,7 @@
     <div class="app-content">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-8 col-sm-12">
+                <div class="col-md-6 col-sm-12">
                     <div class="card">
                         <div class="card-header mt-3 text-center fw-bold">
                             Change your password
@@ -107,10 +107,10 @@
                                             @enderror
                                     </div>
                                 </div>
-                                <div class="form-group row mb-0 pb-0 mt-3">
-                                    <div class="col-md-4 offset-md-4 d-grid gap-2 mb-0 pb-0">
-                                        <button class="btn btn-primary mb-0 pb-0" type="submit">
-                                            {{ __('Change password') }}
+                                <div class="form-group row mb-3">
+                                    <div class="col-md-12 col-lg-6 offset-lg-4 d-grid gap-2 mb-0 pb-0">
+                                        <button class="btn btn-primary" type="submit">
+                                            {{ __('Reset password') }}
                                         </button>
                                     </div>
                                 </div>
@@ -123,5 +123,4 @@
             </div>
         </div>
     </div>
-
 @endsection
