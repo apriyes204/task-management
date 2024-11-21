@@ -27,7 +27,7 @@ class TaskRequest extends FormRequest
             'title' => 'required|string|max:50',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
-            'remove_image' => 'required|in:true,false',
+            'remove_image' => $isUpdateRoute ? 'required|in:true,false' : 'sometimes:true,false',
             // 'user_id' => 'required|exists:users,id'
         ];
 

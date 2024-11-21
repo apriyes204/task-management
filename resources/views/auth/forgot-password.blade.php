@@ -44,6 +44,13 @@
                         {{ __('Send Password Reset Link') }}
                     </button>
                 </div>
+                <div class="col-md-8 offset-md-4">
+                    <a href="{{ route('login') }}" class="btn btn-link mb-0 pb-0">
+                        <p class="pb-0 mb-0">
+                            {{ __('I already have a membership') }}
+                        </p>
+                    </a>
+                </div>
             </div>
         </form>
 
