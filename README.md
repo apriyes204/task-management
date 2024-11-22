@@ -97,7 +97,7 @@ Terima kasih kepada komunitas Laravel, pustaka open-source, dan semua pihak yang
 
 ## License
 
-Proyek ini dilisensikan di bawah [MIT License](LICENSE).  
+Proyek ini dilisensikan di bawah [MIT License](license.md).  
 Silakan gunakan, modifikasi, atau distribusikan proyek ini dengan tetap mematuhi ketentuan lisensi.
 
 ## Catatan
