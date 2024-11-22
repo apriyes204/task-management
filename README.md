@@ -99,7 +99,7 @@ Sebelum menjalankan proyek, pastikan anda sudah menginstall:
 
 ## Credits
 
-Proyek ini dikembangkan oleh [Achmad Dwi Apriyanto]([https://github.com/apriyes204](https://www.linkedin.com/in/achmad-dwi-apriyanto-b1165a88/)).  
+Proyek ini dikembangkan oleh [Achmad Dwi Apriyanto](https://www.linkedin.com/in/achmad-dwi-apriyanto-b1165a88/).  
 Terima kasih kepada komunitas Laravel, pustaka open-source, dan semua pihak yang berkontribusi dalam pengembangan proyek ini.
 
 ## License
