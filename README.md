@@ -89,13 +89,16 @@ Sebelum menjalankan proyek, pastikan anda sudah menginstall:
 
 ## Credits
 
-*Apriyes204* for the awesome [Task Management User](https:/github.com/apriyes204/task-management.git) library.
+Proyek ini dikembangkan oleh [Achmad Dwi Apriyanto](https://github.com/apriyes204).  
+Terima kasih kepada komunitas Laravel, pustaka open-source, dan semua pihak yang berkontribusi dalam pengembangan proyek ini.
 
-## Lisensi
+## License
 
-MIT. Silahkan lihat [file lisensi](license.md) saya untuk informasi lebih lanjut.
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).  
+Silakan gunakan, modifikasi, atau distribusikan proyek ini dengan tetap mematuhi ketentuan lisensi.
 
 ## Catatan
+
 Saya sangat berterima kasih atas apresiasi dan dukungan anda untuk memberikan bintang pada repositori ini.
 
 
