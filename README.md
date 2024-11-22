@@ -89,11 +89,11 @@ Sebelum menjalankan proyek, pastikan anda sudah menginstall:
 
 ## Credits
 
-*Apriyes204* for the awesome [Task Management User](https:/github.com/apriyes204/task-management.git) library
+*Apriyes204* for the awesome [Task Management User](https:/github.com/apriyes204/task-management.git) library.
 
 ## Lisensi
 
-MIT. Please see the [license file](license.md) for more information.
+MIT. Silahkan lihat [file lisensi](license.md) saya untuk informasi lebih lanjut.
 
 ## Catatan
 Saya sangat berterima kasih atas apresiasi dan dukungan anda untuk memberikan bintang pada repositori ini.
