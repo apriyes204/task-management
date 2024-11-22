@@ -59,12 +59,12 @@ Sebelum menjalankan proyek, pastikan anda sudah menginstall:
 
    - Buka file `.env` kemudian ubah beberapa konfigurasi berikut:
      ``` bash
-     DB_CONNECTION= {Sesuaikan dengan type database anda, mysql/pgsql}
-     DB_PORT= {Gunakan port sesuai database server anda, 3306 adalah port standar}
-     DB_USERNAME= {Sesuaikan dengan database server anda, root adalah username standar}
-     DB_HOST= {Sesuaikan dengan hostname database server anda, 127.0.0.1 jika anda menggunakan database lokal}
-     DB_DATABASE= {Sesuaikan dengan database server anda}
-     DB_PASSWORD= {Sesuaikan dengan database server anda, biasanya kosong jika anda menggunakan pengaturan database default}
+     DB_CONNECTION= Sesuaikan dengan type database anda, mysql/pgsql
+     DB_PORT= Gunakan port sesuai database server anda, 3306 adalah port standar
+     DB_USERNAME= Sesuaikan dengan database server anda, root adalah username standar
+     DB_HOST= Sesuaikan dengan hostname database server anda, 127.0.0.1 jika anda menggunakan database lokal
+     DB_DATABASE= Sesuaikan dengan database server anda
+     DB_PASSWORD= Sesuaikan dengan database server anda, biasanya kosong jika anda menggunakan pengaturan database default
      ```
 
     - Silahkan anda buat akun mailtrap untuk konfigurasi email berikut:
