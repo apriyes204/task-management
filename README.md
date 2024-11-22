@@ -44,21 +44,25 @@ Sebelum menjalankan proyek, pastikan anda sudah menginstall:
 5. Setup Environment
    
    - Copy `.env` dari `.env.example` dengan perintah berikut:
+
     ``` bash
     cp. .env.example .env
     ```
 
    - Buat kunci baru di projek anda
+
     ``` bash
     php artisan key:generate
     ``` 
 
    - Tambahkan direktori untuk laravel mengakses file
+
     ``` bash
     php artisan storage:link
     ```
 
    - Buka file `.env` kemudian ubah beberapa konfigurasi berikut:
+
      ``` bash
      DB_CONNECTION= Sesuaikan dengan type database anda, mysql/pgsql
      DB_PORT= Gunakan port sesuai database server anda, 3306 adalah port standar
@@ -69,6 +73,7 @@ Sebelum menjalankan proyek, pastikan anda sudah menginstall:
      ```
 
     - Silahkan anda buat akun mailtrap untuk konfigurasi email berikut:
+
          ``` bash
          MAIL_MAILER=smtp
          MAIL_HOST=smtp.mailtrap.io
@@ -81,11 +86,13 @@ Sebelum menjalankan proyek, pastikan anda sudah menginstall:
          ```
      
 7. Migrasikan database anda dengan perintah berikut di terminal:
+
    ```bash
    php artisan migrate --seed
    ```
 
 8. Jalankan project di server lokal dengan perintah berikut di terminal:
+
     ``` bash
     php artisan serve
     ```
