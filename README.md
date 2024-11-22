@@ -5,7 +5,6 @@
 
 ![Demo Screenshot](./public/backend/assets/img/screenshoot.jpg)
 
-
 Sebuah aplikasi Manajemen Tugas User berbasis web menggunakan Laravel, memungkinkan pengguna untuk menambah, memperbarui, dan menghapus tugas dengan fitur upload gambar dengan fitur authentikasi menggunakan Fortify.
 
 ## Fitur
@@ -92,7 +91,7 @@ Sebelum menjalankan proyek, pastikan anda sudah menginstall:
 
 ## Credits
 
-Proyek ini dikembangkan oleh [Achmad Dwi Apriyanto](https://github.com/apriyes204).  
+Proyek ini dikembangkan oleh [Achmad Dwi Apriyanto]([https://github.com/apriyes204](https://www.linkedin.com/in/achmad-dwi-apriyanto-b1165a88/)).  
 Terima kasih kepada komunitas Laravel, pustaka open-source, dan semua pihak yang berkontribusi dalam pengembangan proyek ini.
 
 ## License
@@ -114,5 +113,5 @@ Saya sangat berterima kasih atas apresiasi dan dukungan anda untuk memberikan bi
 [link-downloads]: https://packagist.org/packages/charlieuki/receiptprinter
 [link-travis]: https://travis-ci.org/charlieuki/receiptprinter
 [link-styleci]: https://styleci.io/repos/12345678
-[link-author]: https://github.com/charlieuki
+[link-author]: https://github.com/apriyes204
 [link-contributors]: ../../contributors
