@@ -67,4 +67,4 @@ Sebelum menjalankan proyek, pastikan anda sudah menginstall:
    php artisan serve
 
 ## Catatan
-Saya sangat berterima kasih atas apresiasi dan dukungan anda untuk memberikan binta pada repositori ini.
+Saya sangat berterima kasih atas apresiasi dan dukungan anda untuk memberikan bintang pada repositori ini.
