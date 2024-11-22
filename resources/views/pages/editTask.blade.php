@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
+            <h1 class="modal-title fs-5" id="eeditTaskModalLabel">
                 Edit Task {{$item->title}}
             </h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
@@ -19,14 +19,14 @@
                             {{-- Name Task --}}
                             <div class="mb-3">
                                 <label for="taskName" class="form-label">Task Name</label>
-                                <input type="text" value="{{$item->title}}" class="form-control" name="title" id="taskName"
+                                <input type="text" value="{{$item->title}}" class="form-control" name="title" id="taskName_{{$item->id}}"
                                     placeholder="Nama Tugas" required>
                             </div>
 
                             {{-- Image Task --}}
                             <div class="mb-3">
                                 <label for="taskImage" class="form-label">Task Image</label>
-                                <input type="file" class="form-control" name="image" id="taskImage"
+                                <input type="file" class="form-control" name="image" id="taskImage_{{$item->id}}"
                                        accept="image/jpg,image/png,image/jpeg" onchange="viewImage(this)">
 
                             </div>
@@ -37,7 +37,7 @@
                             {{-- Description Task --}}
                             <div class="mb-3">
                                 <label for="taskDescription" class="form-label">Task Description</label>
-                                <textarea class="form-control" name="description" id="taskDescription"
+                                <textarea class="form-control" name="description" id="taskDescription_{{$item->id}}"
                                     rows="3" required>{{$item->description}}
                                 </textarea>
                             </div>
@@ -46,7 +46,8 @@
 
                             {{-- Preview Image --}}
                             <div class="mb-3">
-                                <label class="form-label">Preview Gambar</label>
+                                {{-- <label class="form-label">Preview Gambar</label> --}}
+                                <p class="h4">Preview Gambar</p>
                                 <div class="text-center preview-container">
                                     <div id="wrapImage" class="position-relative {{ $item->image_path ? '' : 'd-none' }}">
                                         <img id="imageView"

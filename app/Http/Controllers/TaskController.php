@@ -21,6 +21,7 @@ class TaskController extends Controller
         $taskCount = Task::count();
         $taskCompleted = Task::where('status', 'completed')->count();
         $taskPending = Task::where('status', 'pending')->count();
+
         return view('pages.dashboard', [
             'items' => $items,
             'userCount' => $userCount,
@@ -43,14 +44,14 @@ class TaskController extends Controller
      */
     public function store(TaskRequest $request)
     {
-        $data  = $request->validated();
+        $data = $request->validated();
         $data['user_id'] = $request->user()->id;
         if ($request->hasFile('image')) {
             $image = $request->file('image');
 
             Log::info('Image uploaded', ['original_name' => $image->getClientOriginalName()]);
 
-            $imageName = time() . '_' . uniqid() .  '.' . $image->getClientOriginalExtension();
+            $imageName = time().'_'.uniqid().'.'.$image->getClientOriginalExtension();
             $imagePath = $image->storeAs('assets/gallery', $imageName, 'public');
             $data['image_path'] = $imagePath;
             Log::info('Image stored at', ['path' => $data['image_path']]);
@@ -58,6 +59,7 @@ class TaskController extends Controller
             Log::warning('No image was uploaded');
         }
         Task::create($data);
+
         return redirect(route('tasks.dashboard'))->with('success', 'Task created successfully!');
     }
 
@@ -71,6 +73,7 @@ class TaskController extends Controller
         $taskCount = Task::count();
         $taskCompleted = Task::where('status', 'completed')->count();
         $taskPending = Task::where('status', 'pending')->count();
+
         return view('pages.task-success', [
             'items' => $items,
             'userCount' => $userCount,
@@ -83,7 +86,6 @@ class TaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-
     public function pending()
     {
         $items = Task::with(['users'])->where('status', 'pending')->latest()->paginate(10);
@@ -91,6 +93,7 @@ class TaskController extends Controller
         $taskCount = Task::count();
         $taskCompleted = Task::where('status', 'completed')->count();
         $taskPending = Task::where('status', 'pending')->count();
+
         return view('pages.task-pending', [
             'items' => $items,
             'userCount' => $userCount,
@@ -103,8 +106,9 @@ class TaskController extends Controller
     public function updateStatus(Request $request, $id)
     {
         $data = Task::findOrFail($id);
-        $data->status = $request->has('status') ? 'completed' : 'pending';
+        $data->status = $request->status === 'completed' ? 'completed' : 'pending';
         $data->save();
+
         return redirect()->back()->with('success', 'Status Task is Changed!');
         // return redirect(route('tasks.dashboard'))->with('success', 'Status Task is Changed!');
     }
@@ -118,25 +122,25 @@ class TaskController extends Controller
         $data->title = $request->input('title');
         $data->description = $request->input('description');
 
-        if($request->input('remove_image') === 'true') {
-            if($data->image_path) {
+        if ($request->input('remove_image') === 'true') {
+            if ($data->image_path) {
                 Storage::delete('public/'.$data->image_path);
                 $data->image_path = null;
             }
         }
 
-        if($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             if ($data->image_path) {
-                Storage::delete('public/'. $data->image_path);
+                Storage::delete('public/'.$data->image_path);
             }
             $image = $request->file('image');
-            $imageName = time() . '_' . uniqid() .  '.' . $image->getClientOriginalExtension();
+            $imageName = time().'_'.uniqid().'.'.$image->getClientOriginalExtension();
             $imagePath = $image->storeAs('assets/gallery', $imageName, 'public');
             $data['image_path'] = $imagePath;
         }
 
-
         $data->save();
+
         return redirect()->back()->with('success', 'Task updated successfully!');
         // return redirect(route('tasks.dashboard'))->with('success', 'Task updated successfully!');
 
@@ -150,10 +154,12 @@ class TaskController extends Controller
         try {
             $item = Task::findOrFail($id);
             $item->delete();
+
             return redirect()->back()->with('success', 'success', 'Task successfully deleted!');
             // return redirect(route('tasks.dashboard'))->with('success', 'Task successfully deleted!');
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
             Log::error($e->getMessage());
+
             return redirect()->back()->with('error', 'Failed to delete the task. Please try again.');
             // return redirect(route('tasks.dashboard'))->with('error', 'Failed to delete the task. Please try again.');
         }

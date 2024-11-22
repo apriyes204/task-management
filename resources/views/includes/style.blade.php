@@ -11,6 +11,7 @@
 <!--end::Third Party Plugin(Bootstrap Icons)-->
 <!--begin::Required Plugin(AdminLTE)-->
 <link rel="stylesheet" href="{{ url('backend/css/adminlte.css') }}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <!--end::Required Plugin(AdminLTE)-->
 <!-- apexcharts -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"

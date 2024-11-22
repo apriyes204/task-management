@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
+            <h1 class="modal-title fs-5" id="addTaskModalLabel">
                 Add Task
             </h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
@@ -40,7 +40,8 @@
 
                             {{-- Preview Image --}}
                             <div class="mb-3">
-                                <label class="form-label">Preview Gambar</label>
+                                <p class="h4">Preview Gambar</p>
+                                {{-- <label class="form-label">Preview Gambar</label> --}}
                                 <div class="text-center preview-container">
                                     <div id="wrapImg" class="position-relative d-none">
                                         <img id="imgView" src="/api/placeholder/400/300" class="img-fluid rounded"
