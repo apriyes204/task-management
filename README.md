@@ -1,4 +1,7 @@
-## Task Management User
+# Task Management User
+
+[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Total Downloads][ico-downloads]][link-downloads]
 
 Sebuah aplikasi manajemen tugas berbasis web menggunakan Laravel, memungkinkan pengguna untuk menambah, memperbarui, dan menghapus tugas dengan fitur upload gambar dengan fitur authentikasi menggunakan Fortify.
 
@@ -13,57 +16,97 @@ Sebuah aplikasi manajemen tugas berbasis web menggunakan Laravel, memungkinkan p
 
 Sebelum menjalankan proyek, pastikan anda sudah menginstall:
 
-- PHP
-- Composer
-- Database
-- Git
-- Mailtrap
+- [PHP](https://www.php.net)
+- [Composer](https://getcomposer.org)
+- [Database](https://www.mysql.com)
+- [Git](https://git-scm.com)
+- [Laravel](https://laravel.com)
+- [Mailtrap](https://mailtrap.io)
 
 ## Installasi
 
 1. Clone Repository
     Gunakan perintah berikut di terminal favorit anda:
+    ``` bash
     git clone https:/github.com/apriyes204/task-management.git
     cd task-management
+    ``` 
    
 3. Install Dependencies
     Jalankan perintah berikut:
+    ``` bash
     composer install
+    ``` 
    
 5. Setup Environment
    
-   - Copy .env dari .env.example dengan perintah berikut:
-    cp .env.example .env
+   - Copy `.env` dari `.env.example` dengan perintah berikut:
+    ``` bash
+    cp. .env.example .env
+    ```
 
    - Buat kunci baru di projek anda
+    ``` bash
     php artisan key:generate
+    ``` 
 
    - Tambahkan direktori untuk laravel mengakses file
+    ``` bash
     php artisan storage:link
+    ```
 
-   - Buka file .env kemudian ubah beberapa konfigurasi berikut:
-        - DB_CONNECTION= {Sesuaikan dengan type database anda, MYSQL/PGSQL}
-        - DB_PORT= {Gunakan port sesuai database server anda, 3306 adalah port standar}
-        - DB_USERNAME= {Sesuaikan dengan database server anda, root adalah username standar}
-        - DB_HOST= {Sesuaikan dengan hostname database server anda, 127.0.0.1 jika anda menggunakan database lokal}
-        - DB_DATABASE= {Sesuaikan dengan database server anda}
-        - DB_PASSWORD= {Sesuaikan dengan database server anda, biasanya kosong jika anda menggunakan pengaturan database default}
+   - Buka file `.env` kemudian ubah beberapa konfigurasi berikut:
+     ``` bash
+        DB_CONNECTION= {Sesuaikan dengan type database anda, MYSQL/PGSQL}
+        DB_PORT= {Gunakan port sesuai database server anda, 3306 adalah port standar}
+        DB_USERNAME= {Sesuaikan dengan database server anda, root adalah username standar}
+        DB_HOST= {Sesuaikan dengan hostname database server anda, 127.0.0.1 jika anda menggunakan database lokal}
+        DB_DATABASE= {Sesuaikan dengan database server anda}
+        DB_PASSWORD= {Sesuaikan dengan database server anda, biasanya kosong jika anda menggunakan pengaturan database default}
+     ```
 
     - Silahkan anda buat akun mailtrap untuk konfigurasi email berikut:
-        - MAIL_MAILER=smtp
-        - MAIL_HOST=smtp.mailtrap.io
-        - MAIL_PORT=2525
-        - MAIL_USERNAME=your_mailtrap_username
-        - MAIL_PASSWORD=your_mailtrap_password
-        - MAIL_ENCRYPTION=null
-        - MAIL_FROM_ADDRESS=your_email@example.com
-        - MAIL_FROM_NAME="${APP_NAME}"
+        ``` bash
+          MAIL_MAILER=smtp
+          MAIL_HOST=smtp.mailtrap.io
+          MAIL_PORT=2525
+          MAIL_USERNAME=your_mailtrap_username
+          MAIL_PASSWORD=your_mailtrap_password
+          MAIL_ENCRYPTION=null
+          MAIL_FROM_ADDRESS=your_email@example.com
+          MAIL_FROM_NAME="${APP_NAME}"
+        ```
 
-6. Migrasikan database anda dengan perintah berikut di terminal:
+7. Migrasikan database anda dengan perintah berikut di terminal:
+   ```bash
    php artisan migrate --seed
+   ```
 
 8. Jalankan project di server lokal dengan perintah berikut di terminal:
-   php artisan serve
+    ``` bash
+    php artisan serve
+    ```
+
+## Credits
+
+*Apriyes204* for the awesome [Task Management User](https:/github.com/apriyes204/task-management.git) library
+
+## Lisensi
+
+MIT. Please see the [license file](license.md) for more information.
 
 ## Catatan
 Saya sangat berterima kasih atas apresiasi dan dukungan anda untuk memberikan bintang pada repositori ini.
+
+
+[ico-version]: https://img.shields.io/packagist/v/charlieuki/receiptprinter.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/charlieuki/receiptprinter.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/charlieuki/receiptprinter/master.svg?style=flat-square
+[ico-styleci]: https://styleci.io/repos/12345678/shield
+
+[link-packagist]: https://packagist.org/packages/charlieuki/receiptprinter
+[link-downloads]: https://packagist.org/packages/charlieuki/receiptprinter
+[link-travis]: https://travis-ci.org/charlieuki/receiptprinter
+[link-styleci]: https://styleci.io/repos/12345678
+[link-author]: https://github.com/charlieuki
+[link-contributors]: ../../contributors
