@@ -5,7 +5,7 @@
 
 ![Demo Screenshot](./public/backend/assets/img/Demo.png)
 
-Sebuah aplikasi Manajemen Tugas User berbasis web menggunakan Laravel, memungkinkan pengguna untuk menambah, memperbarui, dan menghapus tugas dengan fitur upload gambar dengan fitur authentikasi menggunakan Fortify.
+Sebuah aplikasi Manajemen Tugas User berbasis web menggunakan Laravel, memungkinkan pengguna untuk menambah, memperbarui, dan menghapus tugas dengan fitur upload gambar dan fitur authentikasi menggunakan Fortify.
 
 ## Fitur
 
