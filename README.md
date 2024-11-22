@@ -1,10 +1,9 @@
 ## Task Management User
 
-Sebuah aplikasi manajemen tugas berbasis web menggunakan Laravel, memungkinkan pengguna untuk menambah, memperbarui, dan menghapus tugas dengan fitur upload gambar.
+Sebuah aplikasi manajemen tugas berbasis web menggunakan Laravel, memungkinkan pengguna untuk menambah, memperbarui, dan menghapus tugas dengan fitur upload gambar dengan fitur authentikasi menggunakan Fortify.
 
 ## Fitur
 
-Berikan daftar fitur utama proyek Anda, misalnya:
 - Autentikasi (Login, Logout, Registrasi, Reset Password, Verify Email).
 - CRUD Task (Create, Read, Update, Delete).
 - Upload gambar pada setiap tugas.
