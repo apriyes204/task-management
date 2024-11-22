@@ -24,6 +24,7 @@ Sebelum menjalankan proyek, pastikan anda sudah menginstall:
 - [Git](https://git-scm.com)
 - [Laravel](https://laravel.com)
 - [Mailtrap](https://mailtrap.io)
+- [Web Server](https://www.apachefriends.org)
 
 ## Installasi
 
